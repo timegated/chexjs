@@ -1,0 +1,19 @@
+.select  {
+  font-size: 24px;
+}
+
+.models {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  margin-top: 2rem;
+}
+
+.model {
+  padding: 10px;
+  border: 1px solid var(--code-string-accent);
+  border-radius: 8px;
+}
+
+.model:hover {
+  background-color: var(--code-string-accent);
+}
