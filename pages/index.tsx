@@ -2,7 +2,6 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Welcome from './components/Welcome'
 import { useModels } from '@/hooks/useModels'
-import { GlobalStateProvider } from './context/Global'
 
 export default function Home() {
   const { data } = useModels();
@@ -17,9 +16,7 @@ export default function Home() {
       </Head>
       <main className={styles.mainContent}>
         <h1>There are currently {data ? data.length : 0} models available</h1>
-        <GlobalStateProvider>
-          <Welcome />
-        </GlobalStateProvider>
+        <Welcome />
       </main>
     </>
   )

@@ -38,7 +38,7 @@ const Welcome = () => {
   const { data, error } = useModels();
   const [filteredModels, setFilteredModels] = useState<Model[]>(data)
   const [filterString, setFilterString] = useState<string>('');
-  const {state, dispatch} = useContext(GlobalStateContext);
+  const { dispatch } = useContext(GlobalStateContext);
 
 
   const filterCode = useCallback(() => (filterString: string): Model[] => data && data.filter((model: Model) => {
@@ -53,19 +53,19 @@ const Welcome = () => {
 
   return (
     <>
-    <section style={{ display: 'flex', flexDirection: 'column', fontSize: '24px'}}>
-      <label htmlFor="select">Filter</label>
-      <select className={styles.select} name="filters" id="filters" onChange={(e: any) => setFilterString(e.target.value)}>
-        {['', code, text, gpt, sim].map((opt: string) => {
-          return <option key={opt} value={opt.toLowerCase()}
-          >{opt}</option>
-        })}
-        <option value=""></option>
-      </select>
-    </section>
+      <section style={{ display: 'flex', flexDirection: 'column', fontSize: '24px' }}>
+        <label htmlFor="select">Filter</label>
+        <select className={styles.select} name="filters" id="filters" onChange={(e: any) => setFilterString(e.target.value)}>
+          {['', code, text, gpt, sim].map((opt: string) => {
+            return <option key={opt} value={opt.toLowerCase()}
+            >{opt}</option>
+          })}
+          <option value=""></option>
+        </select>
+      </section>
       <section className={styles.models}>{filteredModels && filteredModels.map((model: Model) => {
         return (
-          <article className={styles.model} key={model.id} onClick={() => dispatch({type: 'changeModelChoice', payload: model.id})}>
+          <article className={styles.model} key={model.id} onClick={() => dispatch({ type: 'changeModelChoice', payload: model.id })}>
             <div>{model.id}</div>
           </article>
         )
